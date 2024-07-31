@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <title>What Should I Watch?</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="column">
+        <h2>Profile</h2>
+
+        <div class="column profile-info">
+            <h4 th:text="${sessionUserFullName}"></h4>
+            <p th:text="${sessionUserEmail}"></p>
+        </div>
+
+        <div class="column profile-button-group">
+            <a href="/alreadyWatchedMovies"><button type="submit">Already Watched Movies</button></a>
+            <a href="/alreadyWatchedSeries"><button type="submit">Already Watched Series</button></a>
+            <a href="/doNotRecommendMovies"><button type="submit">Do Not Recommend Movies</button></a>
+            <a href="/doNotRecommendSeries"><button type="submit">Do Not Recommend Series</button></a>
+
+            <div class="column">
+                <form method="POST" th:action="@{/terminateAllSessions}">
+                    <input type="hidden" name="CSRFToken" th:value="${CSRFToken}">
+                    <button type="submit">Terminate All Sessions</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="/">App</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <h4 class="prototype">PROTOTYPE</h4>
+    </div>
+</body>
+</html>

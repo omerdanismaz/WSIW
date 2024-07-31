@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <title>What Should I Watch?</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="column">
+        <h2>Recommendation</h2>
+
+        <div class="column media-info">
+            <h3 th:text="${mediaName}"></h3>
+            <h4 th:text="${mediaReleaseDate}"></h4>
+            <h4 th:text="${mediaRatingWebsites}"></h4>
+            <p th:text="${mediaSummary}"></p>
+        </div>
+
+        <div class="row">
+            <form method="POST" th:action="@{/recommendation}">
+                <input type="hidden" name="CSRFToken" th:value="${CSRFToken}">
+                <input type="hidden" name="type" th:value="${type}">
+                <input type="hidden" name="mediaName" th:value="${mediaName}">
+                <input type="hidden" name="buttonAction" value="doNotRecommendFalse">
+                <button type="submit">Already Watched This</button>
+            </form>
+
+            <form method="POST" th:action="@{/recommendation}">
+                <input type="hidden" name="CSRFToken" th:value="${CSRFToken}">
+                <input type="hidden" name="type" th:value="${type}">
+                <input type="hidden" name="mediaName" th:value="${mediaName}">
+                <input type="hidden" name="buttonAction" value="doNotRecommendTrue">
+                <button type="submit">Do Not Recommend This</button>
+            </form>
+        </div>
+
+        <div class="navigation">
+            <a href="/">App</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <h4 class="prototype">PROTOTYPE</h4>
+    </div>
+</body>
+</html>

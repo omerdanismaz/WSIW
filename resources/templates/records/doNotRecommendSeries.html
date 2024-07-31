@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <title>What Should I Watch?</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="column">
+        <h2>Do Not Recommend Series</h2>
+
+        <div th:each="seriesRecord: ${doNotRecommendSeries}">
+            <form method="POST" th:action="@{/removeSeries}">
+                <input type="hidden" name="CSRFToken" th:value="${CSRFToken}">
+                <input type="hidden" name="seriesId" th:value="${seriesRecord.dbfSeriesRecordId}"/>
+
+                <div class="row media-info">
+                    <button type="submit">Remove</button>
+                    <h3 th:text="${seriesRecord.dbfSeriesRecordSeriesName}"></h3>
+                </div>
+            </form>
+        </div>
+
+        <div class="navigation">
+            <a href="/">App</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <h4 class="prototype">PROTOTYPE</h4>
+    </div>
+</body>
+</html>

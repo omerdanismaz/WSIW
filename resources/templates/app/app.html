@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <title>What Should I Watch?</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="column">
+        <h2>App</h2>
+
+        <form id="recommendation-form" method="POST" th:action="@{/ask}">
+            <input id="csrf-token" type="hidden" name="CSRFToken" th:value="${CSRFToken}">
+
+            <div class="column">
+                <h4>Movie or Series</h4>
+
+                <div class="row">
+                    <label>
+                        <input type="radio" name="type" value="Movie"> Movie
+                    </label>
+
+                    <label>
+                        <input type="radio" name="type" value="Series"> Series
+                    </label>
+                </div>
+            </div>
+
+            <div class="column">
+                <h4>Category</h4>
+
+                <div class="row">
+                    <label>
+                        <input type="checkbox" name="category" value="Action"> Action
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Adventure"> Adventure
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Animation"> Animation
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Biography"> Biography
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Comedy"> Comedy
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Crime"> Crime
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Documentary"> Documentary
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Drama"> Drama
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Fantasy"> Fantasy
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Historical"> Historical
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Horror"> Horror
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Musical"> Musical
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Mystery"> Mystery
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Psychological"> Psychological
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Romance"> Romance
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Science Fiction"> Science Fiction
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="Thriller"> Thriller
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="category" value="War"> War
+                    </label>
+                </div>
+            </div>
+
+            <div class="column">
+                <h4>Date Range</h4>
+
+                <div class="row">
+                    <label>
+                        <input type="radio" name="dateRange" value="After 2020"> After 2020
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="2020-2015"> 2020-2015
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="2015-2010"> 2015-2010
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="2010-2005"> 2010-2005
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="2005-2000"> 2005-2000
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="2000-1995"> 2000-1995
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="1995-1990"> 1995-1990
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="1990-1985"> 1990-1985
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="1985-1980"> 1985-1980
+                    </label>
+
+                    <label>
+                        <input type="radio" name="dateRange" value="Before 1980"> Before 1980
+                    </label>
+                </div>
+            </div>
+
+            <div class="column">
+                <h4>Rating Website</h4>
+
+                <div class="row">
+                    <label>
+                        <input type="checkbox" name="ratingSite" value="IMDb"> IMDb
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="ratingSite" value="Rotten Tomatoes"> Rotten Tomatoes
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="ratingSite" value="Metacritic"> Metacritic
+                    </label>
+                </div>
+            </div>
+
+            <div class="column">
+                <h4>Additional Requests</h4>
+
+                <textarea name="additionalRequests" maxlength="200"></textarea>
+            </div>
+
+            <button type="submit">ASK TO AI</button>
+        </form>
+
+        <div class="navigation">
+            <a href="/">App</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <h4 class="information-message hidden" id="information-message"></h4>
+
+        <h4 class="prototype">PROTOTYPE</h4>
+
+        <script th:inline="javascript">
+            var messageOne = /*[[${messageOne}]]*/ "EMPTY";
+            var messageTwo = /*[[${messageTwo}]]*/ "EMPTY";
+            var messageThree = /*[[${messageThree}]]*/ "EMPTY";
+            var messageFour = /*[[${messageFour}]]*/ "EMPTY";
+        </script>
+
+        <script src="/js/app.js"></script>
+    </div>
+</body>
+</html>
